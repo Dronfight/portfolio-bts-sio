@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* VARIABLES */
+:root {
+    --primary: #2563eb;
+    --secondary: #0f172a;
+    --background: #f8fafc;
+    --card: rgba(255, 255, 255, 0.75);
+    --text: #1e293b;
+    --border: rgba(0,0,0,0.08);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(180deg, #f8fafc, #eef2ff);
+    color: var(--text);
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.75);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+/* NAV */
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    flex-wrap: wrap; /* 🔑 évite la disparition des onglets */
+}
+
+/* MENU GAUCHE */
+.nav-left {
+    display: flex;
+    gap: 28px; /* ESPACEMENT DES ONGLETS */
+    flex-wrap: wrap; /* retour à la ligne si nécessaire */
+}
+
+.nav-left a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-weight: 500;
+    position: relative;
+    white-space: nowrap;
+}
+
+/* Animation underline */
+.nav-left a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    left: 0;
+    bottom: -6px;
+    transition: 0.3s;
+}
+
+.nav-left a:hover::after {
+    width: 100%;
+}
+
+/* MENU DROIT (LinkedIn) */
+.nav-right .social {
+    font-size: 1.4rem;
+    color: var(--primary);
+    transition: 0.3s;
+}
+
+.nav-right .social:hover {
+    color: #1e40af;
+    transform: scale(1.2);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 130px auto 60px;
+    padding: 40px;
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    animation: fadeUp 0.7s ease;
+}
+
+/* TITRES */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+/* TEXTE */
+p {
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+/* LISTES EN CARTES */
+ul {
+    list-style: none;
+    display: grid;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+ul li {
+    padding: 15px 20px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+ul li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* IMAGE PROFIL */
+.profile {
+    width: 170px;
+    border-radius: 50%;
+    margin: 25px auto;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* BOUTONS */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--primary), #1e40af);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37,99,235,0.4);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ANIMATION */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .nav-left {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .nav-right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container {
+        margin: 150px 15px 60px;
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
